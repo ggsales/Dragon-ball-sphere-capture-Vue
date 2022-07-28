@@ -8,6 +8,7 @@
                     v-model="DifSelecionada"  
                     @change="pegaSelect"
                     class="select-dif"
+                    
                 >
                     <option
                         v-for="item in dificuldades" 
@@ -46,30 +47,40 @@ export default {
         return {
             dificuldades : [
                 {
-                    value: "normal",
-                    dificuldade: "Normal"
-                }, 
-                {
-                    value: "dificil",
-                    dificuldade: "Difícil"
+                    value: '',
+                    dificuldade: "Selecione uma dificuldade"
+
                 },
                 {
-                    value: "maisDeOitoMil",
-                    dificuldade: "Mais DE OITO MIL!"
+                    value: 'normal',
+                    dificuldade: 'Normal'
+                }, 
+                {
+                    value: 'dificil',
+                    dificuldade: 'Difícil'
+                },
+                {
+                    value: 'maisDeOitoMil',
+                    dificuldade: 'Mais DE OITO MIL!'
                 }
             ],
-            DifSelecionada: "normal",
-            vida: 1
+            DifSelecionada: '',
         }
     },
     watch: {
     },
     methods: {
-       pegaSelect(){
-        // console.log(e.target.value)
-       },
+    //    pegaSelect(){
+    //     // console.log(e.target.value)
+    //    },
+
        pegaDificuldade(dificuldade){
-        router.push(`/game/${dificuldade}`)
+        if(dificuldade !== ''){
+            router.push(`/game/${dificuldade}`)
+        } else{
+            alert("Selecione uma dificuldade para iniciar")
+        }
+        
 
        }
     }
@@ -104,7 +115,6 @@ export default {
     border: 1px solid #000;
     cursor: pointer;
 }
-
 .btn-home{
     margin-top: 10px;
     padding: 5px 45px;
