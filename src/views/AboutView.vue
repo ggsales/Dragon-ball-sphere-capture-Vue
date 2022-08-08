@@ -4,7 +4,7 @@
       {{dificuldade}}
     </h1>
     <div class="cronometro-box">
-      <span  v-for="esfera in esferas" :key="esfera.esferaAtual">
+      <span  v-for="(esfera) in esferas" :key="esfera.esferaAtual">
           {{esfera.esferaAtual}}
       </span>
 
@@ -41,6 +41,7 @@ export default{
   },
        mounted() {
         this.tempoDeJogo()
+        this.removeEsfera()
         },
         methods:{
           tempoDeJogo(){
@@ -51,11 +52,20 @@ export default{
             } else if(this.dificuldade === "maisDeOitoMil"){
               this.tempoEsfera = 850
             }
-            console.log("o tempo de esfera atual é:", this.tempoEsfera)
+          },
+
+          removeEsfera(index){
+            this.timer = setInterval(() => {
+              this.esferas.splice(index, 1)
+              if(this.esferas.length === 0){
+                clearInterval(this.timer)
+                console.log("limpou")
+              }
+           }, 1000)  
+            
           }
 
         }
-
 }
 </script>
 
@@ -74,8 +84,5 @@ export default{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.cronometro-box p{
-
 }
 </style>

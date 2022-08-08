@@ -6,7 +6,6 @@
                 <img src="../assets/game1.png" alt="imagem do primeiro menu">
                 <select 
                     v-model="DifSelecionada"  
-                    @change="pegaSelect"
                     class="select-dif"
                     
                 >
@@ -70,9 +69,6 @@ export default {
     watch: {
     },
     methods: {
-    //    pegaSelect(){
-    //     // console.log(e.target.value)
-    //    },
 
        pegaDificuldade(dificuldade){
         if(dificuldade !== ''){
