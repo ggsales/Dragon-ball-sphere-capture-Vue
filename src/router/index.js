@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/game/:dificuldade',
     name: 'game',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/mainGame.vue')
   }
 ]
 
