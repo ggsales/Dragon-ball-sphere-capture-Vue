@@ -4,10 +4,9 @@
       {{dificuldade}}
     </h1>
     <div class="cronometro-box">
-      <span  v-for="(esfera) in esferas" :key="esfera.esferaAtual">
-          {{esfera.esferaAtual}}
-      </span>
-
+      <div v-for="(esfera) in esferas" :key="esfera.esferaAtual">
+        <img :src="getImagePath(esfera.img)" :alt="'Esfera ' + esfera.esferaAtual">
+      </div>
     </div>
 
   </div>
@@ -25,47 +24,60 @@ export default{
       dificuldade: this.$route.params.dificuldade,
       esferas : [
         {
-          img:"esfera 1",
-          esferaAtual: 1
+          img:"esfera-cheia.png",
+          esferaAtual: 1,
+
         },
          {
-          img:"esfera dois",
+          img:"esfera-cheia.png",
           esferaAtual: 2
         },
         {
-          img:"esfera tres",
+          img:"esfera-cheia.png",
           esferaAtual: 3
         }
       ]
     }
   },
-       mounted() {
-        this.tempoDeJogo()
-        this.removeEsfera()
-        },
-        methods:{
-          tempoDeJogo(){
-            if(this.dificuldade === "normal"){
-              this.tempoEsfera = 1500
-            } else if (this.dificuldade === "dificil"){
-              this.tempoEsfera = 1000
-            } else if(this.dificuldade === "maisDeOitoMil"){
-              this.tempoEsfera = 850
-            }
-          },
+    mounted() {
+      this.tempoDeJogo()
+      this.removeEsfera()
+    },
 
-          removeEsfera(index){
-            this.timer = setInterval(() => {
-              this.esferas.splice(index, 1)
-              if(this.esferas.length === 0){
-                clearInterval(this.timer)
-                console.log("limpou")
-              }
-           }, 1000)  
-            
-          }
+    
+    methods:{
+      getImagePath(imageName) {
+        return require(`@/assets/${imageName}`);
+      },
 
+
+      tempoDeJogo(){
+        if(this.dificuldade === "normal"){
+          this.tempoEsfera = 1500
+        } else if (this.dificuldade === "dificil"){
+          this.tempoEsfera = 1000
+        } else if(this.dificuldade === "maisDeOitoMil"){
+          this.tempoEsfera = 850
         }
+      },
+
+      removeEsfera(index){
+        this.timer = setInterval(() => {
+          this.esferas.splice(index, 1)
+          if(this.esferas.length === 0){
+            clearInterval(this.timer)
+            this.$router.push({
+              path: '/game-over',
+              query: {
+                gameWin: false
+              } 
+            })
+          }
+        }, 1000)  
+        
+      }
+
+    }
 }
 </script>
 
