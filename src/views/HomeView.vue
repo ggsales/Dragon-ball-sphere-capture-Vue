@@ -103,6 +103,7 @@ export default {
 
 .box-menu>img {
     width: 450px;
+    outline: none;
 }
 
 .select-dif{
@@ -110,6 +111,11 @@ export default {
     border-radius: 10px;
     border: 1px solid #000;
     cursor: pointer;
+}
+
+*:focus {
+  outline: none;   
+  caret-color: transparent; 
 }
 .btn-home{
     margin-top: 10px;
