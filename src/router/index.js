@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import GameOver from '@/views/GameOver.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,11 @@ const routes = [
     path: '/game/:dificuldade',
     name: 'game',
     component: () => import('../views/mainGame.vue')
+  },
+  {
+    path: '/game-over',
+    name: 'game-over',
+    component: GameOver
   }
 ]
 
