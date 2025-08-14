@@ -1,8 +1,40 @@
 <template>
   <div id="app">
     <router-view/>
+    <audio ref="musica" :src="musicaSrc" autoplay></audio>
   </div>
 </template>
+<script>
+export default {
+    data()  {
+      return {
+        musicaSrc: ''
+      }
+    },
+    
+    watch:{
+      $route(){
+        if(this.$route.name === 'game'){
+          this.playMusic('dbz-sound')
+        } else if(this.$route.name === 'game-win') {
+          this.playMusic('game-win-sound')
+        } else if(this.$route.name === 'game-over'){
+          this.playMusic('game-over-sound')
+        }
+      }
+    },
+
+    methods:{
+      playMusic(src){
+        this.musicaSrc =  require(`@/sounds/${src}.mp3`);
+            this.$refs.musica.play().catch(err => {
+              console.log('Erro ao tentar tocar a música:', err);
+        });
+      }
+    }
+
+}
+</script>
 
 <style>
 #app {
