@@ -43,8 +43,9 @@ export default {
 
 @media (max-width:412px){
     .game-over-img{
-        margin-top: 90px;
+        margin-top: 50%;
         width: 100% !important;
+        height: 500px !important;
     }   
 }
 *:focus {
