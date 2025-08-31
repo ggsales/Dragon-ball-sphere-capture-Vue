@@ -40,6 +40,13 @@ export default {
     height: 60%;
     pointer-events: none;
 }
+
+@media (max-width:412px){
+    .game-over-img{
+        margin-top: 90px;
+        width: 100% !important;
+    }   
+}
 *:focus {
   caret-color: transparent !important; /* esconde o cursor */
   outline: none !important; /* esconde a borda de foco */

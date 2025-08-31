@@ -1,6 +1,5 @@
 <template>
   <div class="menu-bg">
-    <h5>A dificuldade é {{ dificuldade }}</h5>
 
     <div class="cronometro-box">
       Tempo restante: <span>{{ tempo }}</span>
@@ -224,6 +223,10 @@ export default {
   transform: scaleX(-1);
 }
 @media (max-width:412px){
+
+    .mt-mobile{
+      padding-top: 60px;
+    }
  
 
     .esfera1 {

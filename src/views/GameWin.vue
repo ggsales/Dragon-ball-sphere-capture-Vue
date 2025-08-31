@@ -34,10 +34,17 @@ export default {
 }
 </script>
 <style>
-.game-over-img{
+.game-win-img{
     width: 60% !important;
     height: 60%;
     pointer-events: none;
+}
+
+@media (max-width:412px){
+    .game-win-img{
+        margin-top: 90px;
+        width: 100% !important;
+    }   
 }
 *:focus {
   caret-color: transparent !important; /* esconde o cursor */
