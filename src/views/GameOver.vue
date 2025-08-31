@@ -17,7 +17,9 @@
 <script>
 export default {
     data()  {
-        
+       return {
+
+       } 
     },
     
     mounted(){
@@ -25,7 +27,9 @@ export default {
     },
     methods:{
         redirectMenu(){
-            this.$router.push('/')
+            this.$router.push({
+                path: '/'
+            })
         }
     },
 }

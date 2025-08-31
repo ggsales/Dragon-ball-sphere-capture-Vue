@@ -17,14 +17,18 @@
 <script>
 export default {
     data()  {
-        
+        return {
+
+        }
     },
     
     mounted(){
     },
     methods:{
-        redirectMenu(){
-            this.$router.push('/')
+       redirectMenu(){
+            this.$router.push({
+                path: '/'
+            })
         }
     },
 }
