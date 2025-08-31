@@ -41,9 +41,9 @@ export default {
     pointer-events: none;
 }
 
-@media (max-width:412px){
+@media (max-width:600px){
     .game-over-img{
-        margin-top: 50%;
+        margin-top: 50% !important;
         width: 100% !important;
         height: 500px !important;
     }   
