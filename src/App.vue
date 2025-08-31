@@ -45,6 +45,13 @@ export default {
   color: #2c3e50;
 }
 
+   .app{
+        background-position: center;
+    }
+    .img-win, .img-loser, .img-index{
+        margin-top: 170px;
+        width: 100%;
+    }  
 nav {
   padding: 30px;
 }
@@ -56,5 +63,12 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@media (max-width:412px){
+    .game-win-img, .game-over-img{
+        margin-top: 90px;
+        width: 100%;
+    }   
 }
 </style>

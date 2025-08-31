@@ -2,7 +2,7 @@
     <div class="menu-bg">
         <div class="container">
             <div class="d-flex justify-content-center align-items-center flex-column">
-                <img src="../assets/game-win.png" alt="" tabindex="-1" class="game-over-img">
+                <img src="../assets/game-win.png" alt="" tabindex="-1" class="game-win-img">
                 <b-button 
                     variant="danger"
                     class="btn-home"

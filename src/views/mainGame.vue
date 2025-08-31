@@ -223,5 +223,24 @@ export default {
 .ladoB {
   transform: scaleX(-1);
 }
+@media (max-width:412px){
+ 
 
+    .esfera1 {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .esfera2 {
+        width: 50px;
+        height: 50px;
+    }
+    
+    
+    .esfera3 {
+        width: 70px;
+        height: 70px;
+    }
+
+}
 </style>
