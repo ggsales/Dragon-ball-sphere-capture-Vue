@@ -38,7 +38,6 @@
 
 
 <script>
-import router from '@/router'
 
 export default {
     name: 'MenuIndex',
@@ -72,7 +71,10 @@ export default {
 
        pegaDificuldade(dificuldade){
         if(dificuldade !== ''){
-            router.push(`/game/${dificuldade}`)
+            this.$router.push({
+                path: `/game/${dificuldade}`
+            })
+            
         } else{
             alert("Selecione uma dificuldade para iniciar")
         }
