@@ -3,7 +3,7 @@
     <div class="container result-content">
       <img src="../assets/game-over.png" alt="Fim de jogo" class="game-over-img">
       <p class="result-score" aria-live="polite">Você capturou {{ pontuacao }} esfera(s).</p>
-      <b-button variant="danger" class="btn-home" @click="redirectMenu">Voltar ao menu</b-button>
+      <button type="button" class="btn btn-danger btn-home" @click="redirectMenu">Voltar ao menu</button>
     </div>
   </main>
 </template>

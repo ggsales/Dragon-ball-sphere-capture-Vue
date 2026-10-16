@@ -21,6 +21,10 @@
   </main>
 </template>
 <script>
+import esferaImg from '@/assets/esfera.png'
+import esferaCheiaImg from '@/assets/esfera-cheia.png'
+import esferaVaziaImg from '@/assets/esfera-vazia.png'
+
 export default {
   data() {
     return {
@@ -40,16 +44,16 @@ export default {
     this.iniciaCronometro()
     this.iniciaEsferas()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.limpaTemporizadores()
     window.removeEventListener('resize', this.ajustaTamanhoPalcoJogo)
   },
   methods: {
     getImagePath(imageName) {
       const imagens = {
-        'esfera.png': require('@/assets/esfera.png'),
-        'esfera-cheia.png': require('@/assets/esfera-cheia.png'),
-        'esfera-vazia.png': require('@/assets/esfera-vazia.png'),
+        'esfera.png': esferaImg,
+        'esfera-cheia.png': esferaCheiaImg,
+        'esfera-vazia.png': esferaVaziaImg,
       }
       return imagens[imageName]
     },
@@ -105,7 +109,7 @@ export default {
     },
     perdeVida() {
       const idx = this.vidas.findIndex(vida => vida)
-      if (idx !== -1) this.$set(this.vidas, idx, false)
+      if (idx !== -1) this.vidas[idx] = false
       if (!this.vidas.includes(true)) this.encerraPartida(false)
     },
     encerraPartida(venceu) {

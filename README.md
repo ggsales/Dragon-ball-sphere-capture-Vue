@@ -1,74 +1,67 @@
-# 🐉 Dragon Ball: Captura das Esferas
+# Dragon Ball: Captura das Esferas
 
-Um jogo de reflexo para navegador inspirado em Dragon Ball. Capture o máximo de Esferas do Dragão que conseguir e sobreviva à partida!
+Jogo de reflexo para navegador inspirado em Dragon Ball. Capture o máximo de Esferas do Dragão que conseguir e sobreviva à partida.
 
-**Finalidade:** projeto criado para fins de estudo e prática de desenvolvimento web.
+**Finalidade:** projeto desenvolvido para fins de estudo e prática de desenvolvimento web.
 
 ## Como jogar
 
-1. Escolha uma dificuldade e pressione **Jogar**. O jogo solicita tela cheia quando o navegador oferece suporte; se não oferecer, a partida ainda pode ser jogada normalmente.
-2. Clique ou toque nas esferas antes que desapareçam. Também é possível usar **Tab** para focar uma esfera e **Enter** ou **Espaço** para capturá-la.
-3. Cada esfera capturada soma um ponto. Uma esfera que desaparece sem ser capturada custa uma vida.
+1. Escolha uma dificuldade e pressione **Jogar**. O jogo solicita tela cheia quando o navegador oferece suporte.
+2. Clique ou toque nas esferas antes que desapareçam. Com teclado, use **Tab** para focar uma esfera e **Enter** ou **Espaço** para capturá-la.
+3. Cada captura soma um ponto. Uma esfera que desaparece sem ser capturada custa uma vida.
 4. A partida dura 15 segundos e começa com três vidas. Você vence se ainda tiver pelo menos uma vida quando o tempo chegar a zero.
 
 ### Dificuldades
 
-| Dificuldade | Intervalo entre esferas | Tempo aproximado para capturar cada esfera |
+| Dificuldade | Intervalo entre esferas | Tempo aproximado para capturar |
 | --- | ---: | ---: |
 | Normal | 1,5 s | 1,4 s |
 | Difícil | 1 s | 0,9 s |
 | Mais de oito mil! | 0,85 s | 0,75 s |
 
-## Começar a jogar
+## Executar localmente
 
-### Pré-requisitos
+### Requisitos
 
-- Node.js e npm instalados.
+- Node.js 22.12 ou superior, ou Node.js 20.19 ou superior
+- npm
 
-### Instalação e desenvolvimento
+### Instalar e iniciar o servidor de desenvolvimento
 
-Na pasta do projeto, instale as dependências e inicie o servidor local:
+Na pasta do projeto, execute:
 
-```bash
-npm install
-npm run serve
-```
+    npm install
+    npm run serve
 
-Abra o endereço indicado no terminal. Normalmente, o servidor fica em [http://localhost:8080](http://localhost:8080).
+O Vite normalmente inicia em http://localhost:5173. O terminal informa o endereço efetivamente usado.
 
-### Build de produção
+### Gerar e visualizar o build
 
-```bash
-npm run build
-```
+    npm run build
+    npm run preview
 
-Os arquivos prontos para publicação são gerados na pasta `dist/`.
+Os arquivos de produção são gerados na pasta dist/.
 
-### Verificação de código
+### Analisar o código
 
-```bash
-npm run lint
-```
+    npm run lint
 
 ## Tecnologias
 
-- Vue 2.7 e Vue Router 3
-- Vue CLI 5
-- Bootstrap e BootstrapVue
+- Vue 3 e Vue Router 4
+- Vite
+- Bootstrap 5 para estilos
 - JavaScript, HTML e CSS
 
-## Estrutura do projeto
+## Estrutura principal
 
-```text
-src/
-├── assets/       # Imagens usadas pelo jogo
-├── router/       # Rotas da aplicação
-├── sounds/       # Músicas das telas e da partida
-├── views/        # Menu, jogo e telas de resultado
-├── App.vue       # Estrutura raiz e áudio
-└── main.js       # Inicialização do Vue e dos plugins
-```
+- src/views/: menu, partida e telas de resultado.
+- src/router/: rotas da aplicação.
+- src/assets/ e src/sounds/: imagens e músicas locais.
+- src/main.js: inicialização do Vue e registro do roteador.
+- index.html: entrada HTML do Vite.
+- vite.config.js: plugins e alias de importação.
 
 ## Publicação
 
-O roteador usa o modo `history`. Ao hospedar o conteúdo de `dist/`, configure o servidor para encaminhar rotas da aplicação, como `/game/normal`, para `index.html`. Sem essa regra, abrir ou atualizar diretamente uma rota interna pode retornar erro 404.
+A aplicação usa o modo history do Vue Router. Ao hospedar a pasta dist/, configure o servidor para encaminhar rotas como /game/normal para index.html. Sem essa regra, abrir ou atualizar diretamente uma rota interna pode retornar erro 404.

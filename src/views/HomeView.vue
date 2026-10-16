@@ -6,14 +6,14 @@
         <p class="game-instructions">
           Capture o máximo de esferas e sobreviva aos 15 segundos. Você vence se ainda tiver pelo menos uma vida ao final.
         </p>
-        <label class="sr-only" for="seletor-dificuldade">Escolha a dificuldade</label>
+        <label class="visually-hidden" for="seletor-dificuldade">Escolha a dificuldade</label>
         <select id="seletor-dificuldade" v-model="DifSelecionada" class="select-dif">
           <option v-for="item in dificuldades" :key="item.value" :value="item.value">
             {{ item.dificuldade }}
           </option>
         </select>
         <p class="difficulty-help" aria-live="polite">{{ descricaoDificuldade }}</p>
-        <b-button variant="danger" class="btn-home" @click="pegaDificuldade(DifSelecionada)">Jogar</b-button>
+        <button type="button" class="btn btn-danger btn-home" @click="pegaDificuldade(DifSelecionada)">Jogar</button>
       </div>
     </div>
   </main>
